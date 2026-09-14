@@ -1,0 +1,547 @@
+/* =========================================================
+   THE GUIDE TO TALKING TO MACHINES
+   Cover Prototype
+   Desktop
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   Reset
+   --------------------------------------------------------- */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    background: #071016;
+    color: #f2eee5;
+}
+
+
+/* =========================================================
+   GUIDE SHELL
+
+   Sidebar belongs permanently to The Guide.
+   Cover receives all remaining horizontal space.
+   ========================================================= */
+
+.guide-shell {
+    width: 100%;
+    height: 100vh;
+
+    display: grid;
+
+    grid-template-columns:
+        clamp(220px, 15vw, 285px)
+        minmax(0, 1fr);
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.guide-sidebar {
+    position: relative;
+    z-index: 10;
+
+    height: 100vh;
+
+    padding:
+        34px
+        22px
+        30px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #0b151c 0%,
+            #071017 100%
+        );
+
+    border-right:
+        1px solid rgba(255, 255, 255, 0.08);
+
+    color: rgba(245, 241, 232, 0.82);
+
+    overflow-y: auto;
+}
+
+
+/* ---------------------------------------------------------
+   Sidebar title
+   --------------------------------------------------------- */
+
+.sidebar-header {
+    margin-bottom: 28px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 19px;
+
+    font-weight: 400;
+
+    letter-spacing: 0.12em;
+
+    color: #f4efe5;
+}
+
+
+/* ---------------------------------------------------------
+   Navigation
+   --------------------------------------------------------- */
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-link {
+    display: grid;
+
+    grid-template-columns:
+        26px
+        minmax(0, 1fr);
+
+    align-items: center;
+
+    min-height: 34px;
+
+    padding: 4px 0;
+
+    color: rgba(235, 235, 230, 0.72);
+
+    text-decoration: none;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 13px;
+
+    line-height: 1.3;
+
+    transition:
+        color 160ms ease,
+        transform 160ms ease;
+}
+
+.sidebar-link:hover {
+    color: #ffffff;
+
+    transform: translateX(2px);
+}
+
+.sidebar-link--active {
+    color: #ffffff;
+}
+
+.sidebar-number {
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 11px;
+
+    color: rgba(255, 255, 255, 0.62);
+}
+
+.sidebar-divider {
+    width: 100%;
+    height: 1px;
+
+    margin: 12px 0;
+
+    background:
+        rgba(255, 255, 255, 0.08);
+}
+
+
+/* =========================================================
+   COVER
+   ========================================================= */
+
+.cover {
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+
+    min-width: 0;
+
+    overflow: hidden;
+
+    background: #0c151b;
+}
+
+
+/* =========================================================
+   COVER ART
+
+   Same master artwork.
+
+   object-fit: cover fills the available cover area.
+
+   The focal point is intentionally raised above dead-center
+   because the chimera's head and horns are semantically
+   important.
+
+   Different desktop aspect ratios receive different focal
+   positions below.
+   ========================================================= */
+
+.cover-art {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    /*
+       Default desktop focal point.
+       Horizontal center keeps human/chimera relationship.
+       Vertical position favors the chimera's head.
+    */
+
+    object-position: 50% 38%;
+}
+
+
+/* =========================================================
+   TEXT LEGIBILITY
+
+   Darkening occurs mostly on the left.
+
+   It should feel like part of the image, not a separate
+   website panel.
+   ========================================================= */
+
+.cover-shade {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        linear-gradient(
+            90deg,
+
+            rgba(3, 9, 14, 0.88) 0%,
+
+            rgba(3, 9, 14, 0.67) 18%,
+
+            rgba(3, 9, 14, 0.30) 36%,
+
+            rgba(3, 9, 14, 0.08) 53%,
+
+            rgba(3, 9, 14, 0.00) 68%
+        ),
+
+        linear-gradient(
+            0deg,
+
+            rgba(2, 7, 11, 0.60) 0%,
+
+            rgba(2, 7, 11, 0.17) 30%,
+
+            rgba(2, 7, 11, 0.00) 57%
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   COVER CONTENT
+   ========================================================= */
+
+.cover-content {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    height: 100%;
+
+    padding:
+        clamp(45px, 6vh, 80px)
+        clamp(55px, 6vw, 115px)
+        clamp(46px, 7vh, 90px);
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+}
+
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+.cover-title {
+    max-width: 780px;
+}
+
+.cover-title h1 {
+    margin: 0;
+
+    font-weight: normal;
+}
+
+.cover-title-primary {
+    display: block;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(78px, 7.5vw, 150px);
+
+    font-weight: 400;
+
+    line-height: 0.84;
+
+    letter-spacing: -0.055em;
+
+    color: #f5f0e7;
+
+    text-shadow:
+        0 2px 18px rgba(0, 0, 0, 0.45);
+}
+
+.cover-title-secondary {
+    display: block;
+
+    margin-top: 26px;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size:
+        clamp(17px, 1.35vw, 27px);
+
+    font-weight: 400;
+
+    letter-spacing: 0.32em;
+
+    color:
+        rgba(245, 241, 232, 0.88);
+}
+
+
+/* =========================================================
+   LOWER COVER TEXT
+   ========================================================= */
+
+.cover-footer {
+    width:
+        min(650px, 47vw);
+}
+
+.cover-rule {
+    width: 72px;
+    height: 1px;
+
+    margin-bottom: 24px;
+
+    background:
+        rgba(245, 241, 232, 0.72);
+}
+
+.cover-question {
+    margin:
+        0
+        0
+        42px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(27px, 2.25vw, 44px);
+
+    line-height: 1.12;
+
+    letter-spacing: -0.025em;
+
+    color: #f4efe6;
+
+    text-shadow:
+        0 2px 16px rgba(0, 0, 0, 0.60);
+}
+
+.cover-author {
+    margin: 0;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+    letter-spacing: 0.36em;
+
+    color:
+        rgba(245, 241, 232, 0.76);
+}
+
+
+/* =========================================================
+   ASPECT RATIO TUNING
+
+   The wider the available screen becomes, the more vertical
+   cropping object-fit: cover introduces.
+
+   Therefore the focal position moves upward.
+
+   The purpose is NOT "make the image perfectly centered".
+
+   The purpose is:
+
+       HUMAN <-> CHIMERA
+
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   Standard wide desktop
+   Example:
+   1920x1080
+   2560x1440
+   --------------------------------------------------------- */
+
+@media (min-aspect-ratio: 16 / 9) {
+
+    .cover-art {
+        object-position: 50% 34%;
+    }
+
+}
+
+
+/* ---------------------------------------------------------
+   Wider desktop
+   Example:
+   2560x1080
+   --------------------------------------------------------- */
+
+@media (min-aspect-ratio: 19 / 9) {
+
+    .cover-art {
+        object-position: 50% 29%;
+    }
+
+}
+
+
+/* ---------------------------------------------------------
+   Ultrawide
+   Example:
+   3440x1440
+   --------------------------------------------------------- */
+
+@media (min-aspect-ratio: 21 / 9) {
+
+    .cover-art {
+        object-position: 50% 25%;
+    }
+
+}
+
+
+/* =========================================================
+   TALLER DESKTOP / 16:10
+
+   More vertical image is naturally visible.
+   ========================================================= */
+
+@media (max-aspect-ratio: 16 / 10) {
+
+    .cover-art {
+        object-position: 50% 42%;
+    }
+
+}
+
+
+/* =========================================================
+   SHORT DESKTOP WINDOWS
+
+   Protect against title/question collisions.
+   ========================================================= */
+
+@media (max-height: 760px) {
+
+    .cover-content {
+        padding-top: 34px;
+        padding-bottom: 34px;
+    }
+
+    .cover-title-primary {
+        font-size:
+            clamp(62px, 6.5vw, 105px);
+    }
+
+    .cover-title-secondary {
+        margin-top: 16px;
+    }
+
+    .cover-question {
+        margin-bottom: 24px;
+
+        font-size:
+            clamp(22px, 1.9vw, 33px);
+    }
+
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+
+   Slightly increases breathing room without changing the
+   fundamental layout.
+   ========================================================= */
+
+@media (min-width: 1900px) {
+
+    .cover-content {
+        padding-left: 7vw;
+        padding-right: 7vw;
+    }
+
+    .cover-footer {
+        width: 650px;
+    }
+
+}
